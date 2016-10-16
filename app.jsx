@@ -9,12 +9,14 @@ class App extends React.Component {
  			header: "header from state",
  			"content": "This is my content"
  		}
- 	}
+ 	};
+
+ 	// console.log(this.props);
 	render() {
  		return (
     	<div>
-      	<h1>{this.state.header}</h1>
-      	<h2>{this.state.content}</h2>
+      	<h1 key={this.props}>{this.props.headerProp}</h1>
+      	<h2>{this.props.contentProp}</h2>
     	</div>
  		);
 	}
