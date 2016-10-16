@@ -3,37 +3,18 @@ import React from 'react';
 
 // this is the main component where in everything will be wrapped inside
 class App extends React.Component {
-	constructor(){
- 		super();
+	constructor(props){
+ 		super(props);
  		this.state = {
- 			data: [
- 				{
- 					"id": 1,
- 					"name": "Ankita",
- 					"age": "24"
- 				},
- 				{
- 					"id": 2,
- 					"name": "Apurva",
- 					"age": "19"
- 				},
- 				{
- 					"id": 3,
- 					"name": "Aditi",
- 					"age": "17"
- 				}
- 			]
- 		};
+ 			header: "header from state",
+ 			"content": "This is my content"
+ 		}
  	}
 	render() {
  		return (
     	<div>
-      	<Header/>
-       	<table>
-          <tbody>
-            {this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
-          </tbody>
-       	</table>
+      	<h1>{this.state.header}</h1>
+      	<h2>{this.state.content}</h2>
     	</div>
  		);
 	}
