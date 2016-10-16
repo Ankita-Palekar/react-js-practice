@@ -1,23 +1,37 @@
 import React from 'react';
 
+
+// this is the main component where in everything will be wrapped inside
 class App extends React.Component {
   render() {
-   	var i = 1;
-  	var myStyle = {
-  		fontSize: 100,
-  		color: '#cccccc'
-  	}
-
     return (
-       <div>
-          <h1 style = {myStyle}>This is just a test</h1>
-          <p>You nuts</p>
-          <con>This is my attributes</con>
-          <p> {1==1? 'hi' : 'hello'}</p>
-        {/* this is my comment */}
-       </div>
+      <div>
+      	<Header/>  
+      	<Content/>
+      </div>
     );
   }
+}
+
+class Header extends React.Component{
+	render(){
+		return(
+			<div>
+				<h1>Header</h1>
+			</div>
+		);
+	}
+}
+
+class Content extends React.Component{
+	render(){
+		return(
+			<div>
+				<h2>Content</h2>
+				<p>The content</p>
+			</div>
+		);
+	}
 }
 
 export default App;
