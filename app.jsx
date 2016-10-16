@@ -3,15 +3,6 @@ import React from 'react';
 
 // this is the main component where in everything will be wrapped inside
 class App extends React.Component {
-	constructor(props){
- 		super(props);
- 		this.state = {
- 			header: "header from state",
- 			"content": "This is my content"
- 		}
- 	};
-
- 	// console.log(this.props);
 	render() {
  		return (
     	<div>
@@ -22,6 +13,11 @@ class App extends React.Component {
 	}
 	
 }
+
+	App.defaultProps = {
+ 		headerProp: "Header from props...",
+ 		contentProp:"Content from props..."
+	}
 
 class Header extends React.Component{
 	render(){
