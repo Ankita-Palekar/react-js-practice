@@ -8,22 +8,23 @@ class App extends React.Component {
     this.state = {
       data: 'Initial data...'
     }
+
     this.updateState = this.updateState.bind(this);
+
   };
 
-  updateState(e) {
-    this.setState({data: e.target.value});
+  updateState() {
+    this.setState({data: 'Data updated...'})
   }
 
   render() {
     return (
-      <div>
-        <input type = "text" value = {this.state.data} onChange = {this.updateState} />
-        <h4>{this.state.data}</h4>
-      </div>
+   		<div>
+      	<button onClick = {this.updateState}>CLICK</button>
+      	<h4>{this.state.data}</h4>
+   		</div>
     );
   }
 }
-
 
 export default App;
