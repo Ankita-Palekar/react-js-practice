@@ -5,11 +5,17 @@ import React from 'react';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			data : []		
-		}
-		this.setStateHandler = this.setStateHandler.bind(this);
+		// this.state = {
+		// 	data : []		
+		// }
+		// this.setStateHandler = this.setStateHandler.bind(this);
+		this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
 	};
+
+
+	forceUpdateHandler(){
+		this.forceUpdate();
+	}
 
 	setStateHandler(){
 		var item = "setState ..."
@@ -22,8 +28,8 @@ class App extends React.Component {
 	render(){
 		return(
 			<div>
-				<button onClick={this.setStateHandler}> SET STATE </button>
-				<h4>State Array: {this.state.data} </h4>
+				<button onClick={this.forceUpdateHandlers}> Force Update </button>
+				<h4>Random Num: {Math.random()} </h4>
 			</div>
 		);
 	}
