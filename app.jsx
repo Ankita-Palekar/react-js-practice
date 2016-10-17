@@ -4,34 +4,50 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-		
-    this.state = {
-       data: ''
-    }
+		this.state = {
+			data: 
+			[
+				{
+					component: 'First...',
+					id: 1
+				},
 
-    this.updateState = this.updateState.bind(this);
-    this.clearInput = this.clearInput.bind(this);
-  };
+				{
+					component: 'Second...',
+					id: 2
+				},
 
-  updateState(e) {
-    this.setState({data: e.target.value});
-  }
+				{
+					component: 'Third...',
+					id: 3
+				}
+			]
+		} 	
+	}
+ 
+	render() {
+	  return (
+	    <div>
+	      <div>
+	        {this.state.data.map((dynamicComponent, i) => <Content key = {i} componentData = {dynamicComponent}/>)}
+	      </div>
+	    </div>
+	  );
+	}
 
-  clearInput() {
-    this.setState({data: ''});
-    ReactDOM.findDOMNode(this.refs.myInput).focus();
-  }
+}	
 
+
+
+class Content extends React.Component {
   render() {
     return (
       <div>
-        <input value = {this.state.data} onChange = {this.updateState} ref = "myInput"></input>
-        <button onClick = {this.clearInput}>CLEAR</button>
-        <h4>{this.state.data}</h4>
+        <div>{this.props.componentData.component}</div>
+        <div>{this.props.componentData.id}</div>
       </div>
     );
   }
 }
-
 
 export default App;
