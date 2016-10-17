@@ -1,35 +1,24 @@
 import React from 'react';
-
+import ReactDom from 'react-dom';
 
 // this is the main component where in everything will be wrapped inside
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		// this.state = {
-		// 	data : []		
-		// }
-		// this.setStateHandler = this.setStateHandler.bind(this);
-		this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+		this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
 	};
 
-
-	forceUpdateHandler(){
-		this.forceUpdate();
+	findDomNodeHandler(){
+		var myDiv = document.getElementById('myDiv');
+		ReactDom.findDOMNode(myDiv).style.color = 'green';
 	}
-
-	setStateHandler(){
-		var item = "setState ..."
-		var myArray = this.state.data;
-		myArray.push(item)
-		this.setState({data: myArray})
-	};
 
 
 	render(){
 		return(
 			<div>
-				<button onClick={this.forceUpdateHandlers}> Force Update </button>
-				<h4>Random Num: {Math.random()} </h4>
+				<button onClick={this.findDomNodeHandler}> Find Dome Node </button>
+				<div id="myDiv">Node</div>
 			</div>
 		);
 	}
