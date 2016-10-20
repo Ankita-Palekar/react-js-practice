@@ -1,53 +1,56 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-		this.state = {
-			data: 
-			[
-				{
-					component: 'First...',
-					id: 1
-				},
-
-				{
-					component: 'Second...',
-					id: 2
-				},
-
-				{
-					component: 'Third...',
-					id: 3
-				}
-			]
-		} 	
-	}
- 
 	render() {
 	  return (
 	    <div>
-	      <div>
-	        {this.state.data.map((dynamicComponent, i) => <Content key = {i} componentData = {dynamicComponent}/>)}
-	      </div>
-	    </div>
+				<ul>
+					<li>this is router</li>
+				  <Home></Home>
+				  <About></About>
+				  <Contact></Contact>
+				</ul>
+         
+      </div>
 	  );
 	}
 
 }	
+export default App;
 
-
-
-class Content extends React.Component {
+export class Home extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.props.componentData.component}</div>
-        <div>{this.props.componentData.id}</div>
+      	<a href="#">Home ...</a>
       </div>
     );
   }
 }
+ 
 
-export default App;
+export class About extends React.Component{
+	render(){
+		return (
+			<div>
+				<a href="#">About</a>
+			</div>
+		);
+	}
+}
+
+
+export class Contact extends React.Component {
+  render() {
+    return (
+			<div>
+			  <a href="#">Contact...</a>
+			</div>
+    )
+  }
+}
+
+ 
+
